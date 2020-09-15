@@ -17,25 +17,37 @@ public class HelloController {
     // }
     
     @GetMapping("/")
-	public String greeting(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
+	public String greeting( @RequestParam(name="name", required=false, defaultValue="World") String name, Model model ) {
 		model.addAttribute("name", name);
 		return "greeting";
 	}
 
     @GetMapping("/contact")
-    public String contact(Model model) {
+    public String contact( Model model ) {
         return "contact";
     }
     
     @GetMapping("/about")
-    public String about(Model model) {
+    public String about( Model model ) {
         return "about";
     }
 
     @PostMapping("/contact")
-    public String postContact(Model model, @RequestBody Contact contact) {
+    public String postContact( Model model, @RequestBody Contact contact ) {
         System.out.println(contact.getEmail());
         System.out.println(contact.getMessage());
         return "contact";
+    }
+
+    @PostMapping("/blog")
+    public String postBlog( Model model, @RequestBody BlogEntry entry ) {
+        System.out.println(entry.getAuthor());
+        System.out.println(entry.getBlogPost());
+        return "blog";
+    }
+
+    @GetMapping("/blog")
+    public String blog( Model model ) {
+        return "blog";
     }
 }
