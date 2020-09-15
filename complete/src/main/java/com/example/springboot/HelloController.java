@@ -34,9 +34,9 @@ public class HelloController {
 
     @PostMapping("/contact")
     public String postContact( Model model, @RequestBody Contact contact ) {
-        System.out.println(contact.getEmail());
-        System.out.println(contact.getMessage());
-        return "contact";
+        model.addAttribute("email", contact.getEmail());
+        model.addAttribute("message", contact.getMessage());
+        return "fragments/contactResponse :: #contactSuccess";
     }
 
     @PostMapping("/blog")
