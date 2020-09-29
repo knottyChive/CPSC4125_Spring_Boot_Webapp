@@ -7,7 +7,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <!--<link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}">-->
+    <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}">
     <title>Contact </title>
   </head>
   <body>
@@ -18,21 +18,28 @@
         
         <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
     </div>
-    
-    <div class="card mb-3">
-        <div class="row no-gutters">
-            <div class="col-md-4">
-                <img th:src="@{/images/picture.JPG}" class="card-img" alt="...">
-            </div>
-            <div class="col-md-8">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-            </div>
+    <div class="container">
+        <div class="card mb-3" id="aboutMe">
+            <div class="row no-gutters">
+                <div class="col-md-4">
+                    <img th:src="@{/images/picture.JPG}" class="card-img" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h2 class="card-title">Jalen Gilyard</h3>
+                        <p class="card-text">I am a web developer and astro themed finatic. Grew up in Georgia, I am 21. I am a junior CS Web Development Major.</p>
+                        <p class="card-text">
+                            <p class="text-primary">Charity of Choice:</p>
+                            <a th:href="@{https://www.houseofheroes.org/}"> 
+                                <img th:src="@{/images/hoh.png}" alt="HOH Logo" id="charityLogo">
+                            </a>
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+    
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

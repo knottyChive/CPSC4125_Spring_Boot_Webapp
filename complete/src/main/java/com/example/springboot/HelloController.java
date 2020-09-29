@@ -41,9 +41,11 @@ public class HelloController {
 
     @PostMapping("/blog")
     public String postBlog( Model model, @RequestBody BlogEntry entry ) {
+        model.addAttribute("author", entry.getAuthor());
         System.out.println(entry.getAuthor());
+        model.addAttribute("message", entry.getBlogPost());
         System.out.println(entry.getBlogPost());
-        return "blog";
+        return "fragments/blogEntry.html :: #response";
     }
 
     @GetMapping("/blog")
