@@ -18,17 +18,19 @@
         
         <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
     </div>
-    <div id="blog">
+    <div class="container" id="blog">
+        <h2 class="display-5">Blog Posts</h2>
+
     </div>
     <form id="blog-form" class="container">
             <h2>Add Post</h2>
             <div class="form-group">
                 <label for="exampleFormControlInput1">Author</label>
-                <input name="author" type="text" class="form-control" id="exampleFormControlInput1" placeholder="John Smith">
+                <input name="author" type="text" class="form-control" id="author" placeholder="John Smith">
             </div>
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">Your Post</label>
-                <textarea name="message" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                <textarea name="message" class="form-control" id="textbox1" rows="3"></textarea>
             </div>
             <button type="submit" class="btn btn-primary btn-lg">Submit</button>
         </form>
@@ -37,7 +39,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 
     <script>
         // form handler 
@@ -46,14 +48,15 @@
             event.preventDefault();
             //default way to send data is as a JSON {"var":"value","var":"value"....}
             //get Values from the form above and assign to variable names
-            var formData = {"author": exampleFormControlInput1.value, "message": exampleFormControlTextarea1.value};
+            var formData = {"author": author.value, "message": textbox1.value};
             $.ajax({
                 type: 'POST',
                 url: '/blog',
                 data: JSON.stringify(formData),
                 contentType: "application/json; charset=utf-8",
                 success: function(data){
-                    $("#blog").html(data)
+                    console.log("Found")
+                    $("#blog").append(data);
                     
                 },
                 error: function(e) {
@@ -61,10 +64,6 @@
                 }
             });
         });
-
-       
-
-        
     </script>
   </body>
 </html>
